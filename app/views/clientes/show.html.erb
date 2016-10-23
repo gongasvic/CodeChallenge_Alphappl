@@ -1,0 +1,20 @@
+<div class="col-xs-12 col-md-12">
+	<div class="col-xs-1 col-md-1">
+		<%= gravatar_for @cliente %>
+	</div>
+	<div class="col-xs-11 col-md-11">
+		<div class="page-header">
+			<h1 class="text-center"> Bem Vindo <%= @cliente.nome %> <small>O seu perfil</small></h1>
+		</div>
+	</div>
+</div>
+<div class="col-xs-12 col-md-12">
+	<div class="col-xs-2 col-md-2">
+ 	<div class="well well-sm"><%= link_to "Editar página", edit_cliente_path %></div>
+	<div class="well well-sm"><%= link_to "Vamos às Compras", controller: 'produto' %><br></div>
+	<div class="well well-sm"><%= link_to "Retroceder",  controller: 'clientes'%></div>
+	</div>
+</div>
+<!--<%= link_to 'Apagar a Conta', cliente_path, method: :delete, data: { confirm: 'Are you sure?' } %><br>-->
+
+

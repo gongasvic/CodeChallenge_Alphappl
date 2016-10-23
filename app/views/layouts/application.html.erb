@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Loja Online</title>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <% if request.ssl? %>
+    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js' %>
+    <%= javascript_include_tag 'https://code.jquery.com/jquery-latest.min.js' %>
+  <% else %> 
+    <%= stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js' %>
+    <%= javascript_include_tag 'http://code.jquery.com/jquery-latest.min.js' %>
+  <% end %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 .col-sm-8">
+        <nav class="navbar navbar-inverse">
+		  		<div class="container-fluid">
+				    <!-- Brand and toggle get grouped for better mobile display -->
+				    <div class="navbar-header">
+				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+				        <span class="sr-only">Toggle navigation</span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				        <span class="icon-bar"></span>
+				      </button>
+				      	<%= link_to "Home", root_path, :class => "navbar-brand"%>
+				    </div>
+
+				    <!-- Collect the nav links, forms, and other content for toggling -->
+				    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				      <ul class="nav navbar-nav">
+				        <!--<li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>-->
+				        <li><%= link_to 'Os nossos produtos', controller: 'produto' %></li>
+		            <li>
+			            <% if !session[:user_id].nil? %>
+											<%=link_to 'Página Principal', clientes_path %>
+									<% end %>
+		            </li>				        
+				      </ul>
+				      <ul class="nav navbar-nav navbar-right">
+				       	<li>
+		            	<% if session[:user_id].nil? %>
+									<% end %>
+								</li>
+								<li>
+									<% if session[:user_id].nil? %>
+										<%=link_to 'Login de clientes', login_path %>
+									<% else %>
+										<%= link_to 'Logout', logout_path, :method => :destroy %>
+									<% end %>
+								</li>
+				        <li>
+						      <% if session[:user_id].nil? %>
+										<%= link_to 'Sign Up', new_cliente_path %>
+									<% end %>
+				        </li>
+				        <li>
+						      <% if !session[:user_id].nil? %>
+										<%= render 'layouts/cart_text' %>
+									<% end %>
+				        </li>
+			      	</ul>
+				    </div><!-- /.navbar-collapse -->
+				  </div><!-- /.container-fluid -->
+				</nav>
+      </div>
+    <%= yield %>
+  </div>
+
+</body>
+</html>

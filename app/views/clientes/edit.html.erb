@@ -1,0 +1,128 @@
+<body style="overflow:visible" >
+<div class="col-xs-12 col-md-12" >
+
+  <div class="page-header">
+    <h1 class="text-center">  Edite o seu perfil <%= @cliente.titulo.capitalize %> <%= @cliente.nome %></h1>
+  </div>
+
+
+
+<%= form_for :cliente, url: cliente_path(@cliente), method: :patch, :class => "form-inline"  do |f| %>
+
+<%= render "error" %>
+
+
+<div class="col-xs-12 col-md-12">
+<div class="form-group">
+
+<div class="row">
+<div class="col-xs-1 col-md-1">
+  <p>
+    <%= f.label :titulo %><br>
+    <%= f.select :titulo, [['Sr.','sr.'],['Sra.','sra.'],['Dr.','dr.'],['Dra.','dra.']], :class=>"form-control" %>
+  </p>
+  </div>
+<div class="col-xs-5 col-md-5">
+  <p>
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome, :class=>"form-control" %>
+  </p>
+</div>
+<div class="col-xs-6 col-md-6">
+  <p>
+    <%= f.label :morada %><br>
+    <%= f.text_field :morada, :class=>"form-control" %>
+  </p>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-3 col-md-3">
+  <p>
+    <%= f.label :cidade %><br>
+    <%= f.text_field :cidade, :class=>"form-control" %>
+  </p>
+</div>
+<div class="col-xs-3 col-md-3">
+  <p>
+    <%= f.label :País %><br>
+    <%= f.text_field :pais, :class=>"form-control" %>
+  </p>
+</div>
+<div class="col-xs-2 col-md-2">
+
+  <p>
+    <%= f.label :Codigo_Postal %><br>
+    <%= f.text_field :cpostal, :class=>"form-control" %>
+  </p>
+</div>
+
+<div class="col-xs-4 col-md-4">
+  <p>
+    <%= f.label :contacto %><br>
+    <%= f.phone_field :telefone, :class=>"form-control" %>
+  </p>
+  </div>
+  </div>
+<div class="row">
+<div class="col-xs-3 col-md-3">
+  <p>
+    <%= f.label :Palavra_Passe %><br>
+    <%= f.text_field :password, :class=>"form-control" %>
+  </p>
+  </div>
+<div class="col-xs-3 col-md-3">
+  <p>
+    <%= f.label :Palavra_Passe_Confirmação %><br>
+    <%= f.text_field :password_confirmation, :class=>"form-control" %>
+  </p>
+  </div>
+<div class="col-xs-6 col-md-6">
+  <p>
+    <%= f.label :mail %><br>
+    <%= f.email_field :mail, :class => "form-control" %>
+  </p>
+  </div>
+  </div>
+<div class="row">
+<div class="col-xs-2 col-md-2">
+  <p>
+    <%= f.label :nif %><br>
+    <%= f.text_field :nif, :class=>"form-control" %>
+  </p>
+  </div>
+
+<div class="col-xs-2 col-md-2">
+  <p>
+    <%= f.label :Numero_do_Cartão %><br>
+    <%= f.text_field :cardNumb, :class=>"form-control" %>
+  </p>
+  </div>
+
+<div class="col-xs-2 col-md-2">
+  <p>
+    <%= f.label :Data_de_expiração %><br>
+    <%= f.month_field :expDate, :class=>"form-control" %>
+  </p>
+  </div>
+
+<div class="col-xs-6 col-md-6">
+  <p>
+    <%= f.label :Nome_no_Cartão %><br>
+    <%= f.text_field :nomeCartao, :class=>"form-control" %>
+  </p>
+  </div>
+  </div>
+
+  <p>
+    
+<div class="col-xs-6 col-md-6">
+<%= f.submit "Editar", :class => "btn btn-primary btn-lg navbar-right"%>
+</div>
+
+<div class="col-xs-2 col-md-2 text-center">
+    <div class="well well-sm"><%= link_to "Retroceder", controller: 'clientes'%></div>
+</div>
+
+  </p>
+<% end %>
+</body>

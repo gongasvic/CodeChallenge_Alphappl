@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: project_development
+  pool: 5
+  username: gongasvic
+  password: vic1994
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: project_production
+  pool: 5
+  username: gongasvic
+  password: vic1994

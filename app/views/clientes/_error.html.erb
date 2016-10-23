@@ -1,0 +1,17 @@
+
+  <% if @cliente.errors.any? %>
+  
+<div class="alert alert-danger" role="alert">
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@cliente.errors.count, "erro") %> impediram o
+        cliente de se registrar:
+      </h2>
+      <ul>
+        <% @cliente.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <% end %>
